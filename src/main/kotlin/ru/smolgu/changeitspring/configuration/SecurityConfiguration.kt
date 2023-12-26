@@ -31,7 +31,7 @@ class SecurityConfiguration(private val kcRoleConverter: KCRoleConverter) {
             .cors { }
             .authorizeHttpRequests { authorize ->
                 authorize
-                    .anyRequest().permitAll()
+                    .anyRequest().authenticated()
             }
             .oauth2ResourceServer { oauth2 ->
                 oauth2.jwt { jwt ->
