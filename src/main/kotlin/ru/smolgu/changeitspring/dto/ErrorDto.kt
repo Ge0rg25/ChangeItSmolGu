@@ -1,4 +1,8 @@
 package ru.smolgu.changeitspring.dto
 
-class ErrorDto {
-}
+import java.time.LocalDateTime
+
+data class ErrorDto(
+    val message: String,
+    val timestamp: LocalDateTime
+)

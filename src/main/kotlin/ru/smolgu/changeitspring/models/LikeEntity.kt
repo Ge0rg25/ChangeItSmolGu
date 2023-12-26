@@ -1,4 +1,21 @@
 package ru.smolgu.changeitspring.models
 
-class LikesEntity {
+import jakarta.persistence.Entity
+import jakarta.persistence.Id
+import jakarta.persistence.ManyToMany
+import jakarta.persistence.ManyToOne
+import jakarta.persistence.Table
+import java.util.UUID
+
+
+@Entity
+@Table(name = "likes")
+class LikeEntity(
+    val userId: UUID,
+
+    @ManyToOne
+    val petition: PetitionEntity
+) {
+    @Id
+    val id: UUID = UUID.randomUUID()
 }

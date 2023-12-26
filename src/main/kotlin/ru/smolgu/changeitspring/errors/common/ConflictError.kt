@@ -1,4 +1,4 @@
 package ru.smolgu.changeitspring.errors.common
 
-class ConflictError {
+class ConflictError(override val message: String): RuntimeException() {
 }

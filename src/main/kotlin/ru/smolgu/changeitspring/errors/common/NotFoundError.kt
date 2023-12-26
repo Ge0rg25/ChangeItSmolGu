@@ -1,3 +1,3 @@
-package ru.smolgu.changeitspring.errors.controllers
+package ru.smolgu.changeitspring.errors.common
 
-typealias NotFoundError = RuntimeException
+class NotFoundError(override val message: String) : RuntimeException()

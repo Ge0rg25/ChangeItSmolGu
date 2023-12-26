@@ -1,0 +1,37 @@
+server:
+  port: 2000
+
+spring:
+  application:
+    name: changeIt
+
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: postgres
+
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: http://localhost:8180/realms/${keycloak.realm}/protocol/openid-connect/certs
+
+  servlet:
+    multipart:
+      max-file-size: 1GB
+      max-request-size: 1GB
+
+
+keycloak:
+  auth-server-url: http://localhost:8180/
+  client:
+    manage: user-manage-client
+    business: changeit-client
+  realm: changeit-realm
+  credentials:
+    secret: 15TiSXvA1c39djCxCueLdHYOwVCTH86b
